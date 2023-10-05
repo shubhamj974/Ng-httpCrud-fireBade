@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card mb-4" [id]="post.id" *ngFor="let post of postArr">
+      <div class="card-header">
+        <h3 class="m-0">
+          {{ post.title }}
+        </h3>
+      </div>
+      <div class="card-body">
+        <p class="m-0">
+          {{ post.body }}
+        </p>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <button
+          [routerLink]="['posts', post.id, 'edit']"
+          type="button"
+          class="btn btn-primary"
+        >
+          Edit
+        </button>
+
+        <button
+          (click)="onRemove(post.id)"
+          type="button"
+          class="btn btn-danger"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
